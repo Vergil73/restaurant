@@ -1,0 +1,42 @@
+
+#menu-head{
+    margin-top: 50px;
+    text-align: center;
+}
+
+ .middle-part{
+    display: flex;
+    flex-wrap: wrap;           /* allows wrapping on smaller screens */
+    justify-content: center;   /* center the cards horizontally */
+    gap: 20px;                 /* space between cards */
+    margin: 50px auto;
+    width: 100%;
+    max-width: 1200px;         /* total container width */
+}
+
+.card {
+    background-color: rgba(250, 129, 47, 0.3);
+    padding: 20px;
+    flex: 1 1 300px;   
+    max-width: 500px;          /* optional max width */
+    display: flex;             /* to align image + text inside card */
+    flex-direction: column;    /* stack image + text vertically inside card */
+    align-items: center;
+    /* background-color: transparent; */
+}
+
+.card img {
+    width: 100%;
+    height: 200px;      /* fixed visual height */
+    object-fit: cover; /* crop instead of stretch */
+    border-radius: 8px;
+}
+.info {
+    text-align: center;
+}
+
+.socials img{
+    width: 3rem;
+    height: auto;
+    margin-bottom: 20px;
+}

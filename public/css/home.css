@@ -1,0 +1,88 @@
+
+
+#quote-text {
+    font-size: 4.5rem;
+    font-weight: 1000;
+    text-align: center;
+    margin-top: 100px;
+
+    color: transparent;
+    background: linear-gradient(90deg,
+        #DD0303 0%,   
+        #FEF3E2 25%,  
+        #DD0303 50%,  
+        #FEF3E2 75%,  
+        #DD0303 100% 
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: sweep 5s linear infinite;
+}
+
+@keyframes sweep {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+
+
+
+
+.middle-part{
+    display: flex;                  /* puts children in a row */
+    justify-content: center;        /* centers the whole group */
+    align-items: center;            /* vertical alignment */
+    gap: 15rem;                      /* space between items */
+    padding: 2rem 0;                /* top & bottom spacing */
+}
+
+
+.info{
+    max-width: 520px;               /* readable line length */
+    text-align: center;             /* matches reference */
+    font-size: 1.05rem;
+    line-height: 1.8;               /* relaxed reading */
+    letter-spacing: 0.3px;          /* subtle elegance */
+    padding: 0 1.5rem;
+}
+
+.photo{
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.photo img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.photo.left{
+    transform: translateY(-100px);
+}
+
+.photo.right{
+    transform: translateY(100px);
+}
+
+@media (max-width: 880px){
+    .phot{
+        width: 100px;
+    }
+}
+
+
+.socials{
+    display: flex;
+    margin-top: 5rem;
+}
+
+.socials img{
+    width: 3rem;
+    height: auto;
+}
+ .socials img:hover{
+    box-shadow: 0 4px 10px #FEF3E2;
+    transform: translateY(-2px);
+ }

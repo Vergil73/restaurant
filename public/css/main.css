@@ -1,0 +1,12 @@
+* {
+ 
+    box-sizing: border-box;
+}
+
+ body{
+    padding-top: 10px;
+    font-family: Arial, sans-serif;
+    color: #F5EDE3;
+    min-height: 100vh;
+    background: url(/photos/image.png) no-repeat center center/cover; 
+}

@@ -9,4 +9,6 @@
     color: #F5EDE3;
     min-height: 100vh;
     background: url(/photos/image.png) no-repeat center center/cover; 
+    /* width: 100%;
+    height: auto; */
 }

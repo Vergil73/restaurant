@@ -1,4 +1,29 @@
 
+.category-container{
+    padding: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.category{
+    border: none;
+    background-color: transparent;
+    color:#FEF3E2;
+    font-size: 1.3rem;
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.category:hover{
+    color: #162530;
+    background-color: rgba(188, 212, 229, 0.8);
+    border: 2px solid #FEF3E2;
+    border: 2-x solid transparent;
+    transition: all 0.7s ease;
+}
+
+
 #menu-head{
     margin-top: 50px;
     text-align: center;

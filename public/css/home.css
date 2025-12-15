@@ -1,11 +1,11 @@
 
-
+ 
 #quote-text {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
     font-size: 4.5rem;
     font-weight: 1000;
     text-align: center;
     margin-top: 100px;
-
     color: transparent;
     background: linear-gradient(90deg,
         #DD0303 0%,   
@@ -26,63 +26,119 @@
 }
 
 
-
-
-
 .middle-part{
-    display: flex;                  /* puts children in a row */
-    justify-content: center;        /* centers the whole group */
-    align-items: center;            /* vertical alignment */
-    gap: 15rem;                      /* space between items */
-    padding: 2rem 0;                /* top & bottom spacing */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
 }
 
-
 .info{
-    max-width: 520px;               /* readable line length */
-    text-align: center;             /* matches reference */
-    font-size: 1.05rem;
-    line-height: 1.8;               /* relaxed reading */
-    letter-spacing: 0.3px;          /* subtle elegance */
-    padding: 0 1.5rem;
+    padding: 100px;
+    font-size: 1.5rem;
+    margin: 60px;
+    justify-content: center;
+    text-align: center;
 }
 
 .photo{
-    width: 220px;
-    flex-shrink: 0;
+    width: 800px;
 }
 
 .photo img{
     width: 100%;
     height: auto;
-    display: block;
 }
 
 .photo.left{
-    transform: translateY(-100px);
+    transform: translateX(110px)translateY(-60px);
 }
 
 .photo.right{
-    transform: translateY(100px);
+    transform: translateX(-110px)translateY(135px);
 }
 
-@media (max-width: 880px){
-    .phot{
-        width: 100px;
+/* .photo.left{
+    left: 300px;
+    bottom: 50px;
+}
+
+.photo.right{
+    right: 300px;
+    top: 50px;
+} */
+
+@media (max-width: 600px){
+    #quote-text {
+        font-size: 4rem;
+        font-weight: 1000;
     }
 }
 
-
-.socials{
+.menu{
+    margin: 200px;
     display: flex;
-    margin-top: 5rem;
+    gap: 10.5rem;
+    text-align: center;
+    justify-content: center;
 }
 
-.socials img{
-    width: 3rem;
+.menuImg{
+    /* border: 2px solid white; */
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2.5rem;
+
+}
+
+.menuImg img{
+    font-style: italic;
+    border-radius: 50px;
+    max-width: 100%;
     height: auto;
 }
- .socials img:hover{
-    box-shadow: 0 4px 10px #FEF3E2;
-    transform: translateY(-2px);
- }
+
+
+#home-menu{
+    padding: 2rem;
+    font-size: 1.05rem;
+    color: #FEF3E2;
+    /* border: 2px solid white; */
+   
+}
+
+#home-menu ul li {
+    list-style: none;
+}
+
+.dish {
+    float: left;
+    color: #FA812F;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    padding-right: 15px;
+}
+
+.price {
+    float: right;
+    color: #FAB12F;
+    font-weight: bold;
+    position: relative;
+    background-color: transparent;
+    padding-left: 15px;
+}
+
+.description {
+    clear: both;
+    display: block;
+    color: #FAB12F;
+    font-style: italic;
+    font-size: 14px;
+    padding-top: 10px;
+    position: relative;
+    top: -8px;
+}

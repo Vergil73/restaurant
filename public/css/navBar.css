@@ -4,7 +4,7 @@
 }
 
 .navbar {
-    margin-top: 50px;
+    /* margin-top: 1px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,7 +143,8 @@
 
 
 .socials{
-    padding: 3rem;
+    margin-top: 3re,;
+    /* padding: 3rem; */
     display: flex;
     gap: 2rem;
 }

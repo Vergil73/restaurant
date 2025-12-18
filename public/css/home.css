@@ -36,7 +36,7 @@
 
 .info{
     padding: 100px;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin: 60px;
     justify-content: center;
     text-align: center;
@@ -59,16 +59,6 @@
     transform: translateX(-110px)translateY(135px);
 }
 
-/* .photo.left{
-    left: 300px;
-    bottom: 50px;
-}
-
-.photo.right{
-    right: 300px;
-    top: 50px;
-} */
-
 @media (max-width: 600px){
     #quote-text {
         font-size: 4rem;
@@ -85,7 +75,6 @@
 }
 
 .menuImg{
-    /* border: 2px solid white; */
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -104,9 +93,7 @@
 #home-menu{
     padding: 2rem;
     font-size: 1.05rem;
-    color: #FEF3E2;
-    /* border: 2px solid white; */
-   
+    color: #FEF3E2;   
 }
 
 #home-menu ul li {

@@ -8,40 +8,45 @@
     <link rel="stylesheet" href="/css/contact.css">
 
     <title>contact Us</title>
-</head>
+</head> 
 <body>
     <%- include('templates/navBar.ejs'); -%>
 
     <div class="wrapper">
         <h1>Contact Us</h1>
-            <img src="https://images.unsplash.com/photo-1549473448-5d7196c91f48?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE0fHxtYW5hZ2VyfGVufDB8fDB8fHww" width="200" height="300">
 
-        <div class="contact-info">
-            <ul>
-                <li>School Road, Hetauda, Nepal</li>
-                <li> +977 98XXXXXX</li>
-                <li> example@gmail.com</li>     
-            </ul>
-            <div class="form">
-            <form>
-                <h2>Get in Touch</h2>
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message" rows="4"></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-        </div>
+        <div class="contact-layout">
 
+            <div class="manager-photo">
+                <img src="https://images.unsplash.com/photo-1549473448-5d7196c91f48?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE0fHxtYW5hZ2VyfGVufDB8fDB8fHww" alt="Manager Photo">
+            </div>
+
+            <div class="info-column">
+                <div class="contact-info">   
+                    <ul>
+                        <li>School Road, Hetauda, Nepal</li>
+                        <li>+977 98XXXXXX</li>
+                        <li>example@gmail.com</li>     
+                    </ul>
+                </div>
+
+                <div class="form">
+                    <form>
+                        <h2>Get in Touch</h2>
+                        <input type="text" placeholder="Name" required>
+                        <input type="email" placeholder="Email" required>
+                        <textarea placeholder="Message" rows="4"></textarea>
+                        <button id="button" type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    
-
-    
-<!-- 
     <div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28330.227703734563!2d85.01159790588439!3d27.429431185922216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb498e495d3b7b%3A0x7ad1991a2b4c0a!2sUniversal%20Food%20Plaza!5e0!3m2!1sen!2snp!4v1765859080154!5m2!1sen!2snp" width="500" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div> -->
+    </div>
 
     
 </body>

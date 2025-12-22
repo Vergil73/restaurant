@@ -5,7 +5,8 @@
 
  body{
     padding-top: 10px;
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
+    font-family: 'Times New Roman', Times, serif;
     color: #FEF3E2;
     min-height: 100vh;
     background: url(/photos/image.png) no-repeat center center/cover; 

@@ -1,14 +1,14 @@
-.navbar img{
+/* .navbar img{
     width: 5rem;
     height: auto;
-}
+} */
 
 .navbar {
     /* margin-top: 1px; */
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80 px;
+    height: 80px;
     width: 100%;
     position: sticky;
     top: 0;
@@ -50,7 +50,7 @@
     font-weight: 500;
     padding: 3px 20px;
     border-radius: 20px;
-    border: 2-x solid transparent;
+    border: 2p solid transparent;
     transition: all 0.7s ease;
     white-space: nowrap;
 }
@@ -58,8 +58,9 @@
 .navbar-container .navbar-menu li a:hover,
 .navbar-container .nav-menu li a.active{
     color: #162530;
-    background-color: rgba(188, 212, 229, 0.8);
-    border: 2px solid #fff;
+    /* background-color: rgba(188, 212, 229, 0.8); */
+    background-color: #DD0303;
+    border: 2px solid #FEF3E2;
 }
 
 .navbar-toggle{
@@ -75,7 +76,7 @@
     width: 25px;
     height: 3px;
     margin: 5px;
-    background: #fff;
+    background: #FEF3E2;
     transition: all 0.3s ease-in-out;
 }
 
@@ -96,10 +97,8 @@
         top: 0;
         right: 0;
         padding: 5rem 1.5rem;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0, 5);
-        backdrop-filter: blur(10px);
-
-        
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);        
     }
 
     .navbar-container .navbar-menu.active{
@@ -127,33 +126,25 @@
 
 @media (max-width: 480px){
     .navbar-container{
-        padding: 0 1rem;
+        padding: 0;
     }
 
     .navbar-logo{
         font-size: 1.2rem;
     }
 
+    .navbar-toggle{
+        padding: 0px;
+    }
+
     .navbar-container .navbar-menu li a{
-        font-size: 2.2rem;
-        padding: 3px 15px;
+        font-size: 1.2rem;
     }
     
 }
 
-
-.socials{
-    margin-top: 3re,;
-    /* padding: 3rem; */
+.socials {
+    margin-top: auto;
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 }
-
-.socials img{
-    width: 3rem;
-    height: auto;
-}
- .socials img:hover{
-    box-shadow: 0 4px 10px #FEF3E2;
-    transform: translateY(-2px);
- }

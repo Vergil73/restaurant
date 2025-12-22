@@ -16,7 +16,7 @@
 }
 
 .category:hover{
-    color: #162530;
+    color: #162530;  
     background-color: rgba(188, 212, 229, 0.8);
     border: 2px solid #FEF3E2;
     border: 2-x solid transparent;

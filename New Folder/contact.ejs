@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/contact.css">
+
+    <title>contact Us</title>
+</head> 
+<body>
+    <%- include('templates/navBar.ejs'); -%>
+
+    <div class="wrapper">
+        <h1>Contact Us</h1>
+
+        <div class="contact-layout">
+
+            <div class="manager-photo">
+                <img src="https://images.unsplash.com/photo-1549473448-5d7196c91f48?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE0fHxtYW5hZ2VyfGVufDB8fDB8fHww" alt="Manager Photo">
+            </div>
+
+            <div class="info-column">
+                <div class="contact-info">   
+                    <ul>
+                        <li>School Road, Hetauda, Nepal</li>
+                        <li>+977 98XXXXXX</li>
+                        <li>example@gmail.com</li>     
+                    </ul>
+                </div>
+
+                <div class="form">
+                    <form>
+                        <h2>Get in Touch</h2>
+                        <input type="text" placeholder="Name" required>
+                        <input type="email" placeholder="Email" required>
+                        <textarea placeholder="Message" rows="4" required></textarea>
+                        <button id="button" type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="map">
+        <!-- <h2></h2>Direction To Our Location</h2> -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d165100.5970230429!2d84.72166001283068!3d27.420849955823495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb497ced46c917%3A0xafb8902c7a4532ab!2sHetauda!5e0!3m2!1sen!2snp!4v1766414074842!5m2!1sen!2snp" width="500" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    
+</body>
+</html>
+
+
+

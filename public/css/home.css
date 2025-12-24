@@ -1,36 +1,86 @@
 body {
     margin: 0;
+    padding: 0;
 }
 
+
+.wrapper {
+    position: relative;
+    text-align: center;
+    height: clamp(40vh, 85vh, 100vh);
+    overflow: hidden; 
+    /* margin-bottom: 8rem; */
+
+
+}
+
+.wrapper > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+
+
+.head {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 #name-restaurant{
     font-size: 4.5rem;
 }
 
-
-.menu-text{
-    text-align: center;
-    font-size: 2.5rem;
-}
-
 #quote-text {
     font-size: clamp(2.5rem, 8vw, 4.5rem);
     font-size: 2.5rem;
+    /* font-size: clamp(1rem, 3vw, 2rem); */
     font-weight: 1000;
     text-align: center;
     margin-top: -50px;
     color: transparent;
     background: linear-gradient(90deg,
-        #FAB12F 0%,   
-        #FEF3E2 25%,  
-        #FAB12F 50%,  
-        #FEF3E2 75%,  
-        #FAB12F 100% 
+        #DC5F00 0%,   
+        #EEEEEE 25%,  
+        #DC5F00 50%,  
+        #EEEEEE 75%,  
+        #DC5F00 100% 
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     animation: sweep 5s linear infinite;
+}
+
+
+.menu-intro{
+    display: flex;
+    gap: 3.3rem;          
+    padding: 10rem;
+    align-items: center;
+    text-align: left; 
+    max-width: 200000px;
+    flex-wrap: wrap;
+}
+
+.info{
+    text-align: left;
+    flex: 1;
+    padding: 2rem;
+}
+
+.image-menu > img{
+    width: 400px;
+    height: auto;
 }
 
 @keyframes sweep {
@@ -85,7 +135,7 @@ body {
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
-    background-color: #FEF3E2;
+    background-color: #EEEEEE;
     opacity: 0.75;
     transition: opacity ease 250ms;
 }
@@ -109,7 +159,7 @@ body {
     padding: 5px 3px;
     font-size: 2rem;
     text-decoration: none;
-    color: #FEF3E2;
+    color: #EEEEEE;
     transition: all 0.7s ease;
 }
 
@@ -117,7 +167,7 @@ body {
     background-color: #DD0303;
     border-radius: 20px;
     color: #162530;
-    border: 2px solid #FEF3E2;
+    border: 2px solid #EEEEEE;
 }
 
 .footer {
@@ -141,7 +191,7 @@ body {
     display: inline-block;
     margin-top: 0.8rem;
     font-size: 1.1rem;
-    color: #FEF3E2;
+    color: #EEEEEE;
 }
 
 .opening-hours ul li{
@@ -162,17 +212,17 @@ body {
 }
 
 #personal{
-    color:#FEF3E2
+    color:#EEEEEE
 }
 
 
 @media(max-width: 800px){
     #name-restaurant{
-        font-size: 3.6rem;
+        font-size: 3.4rem;
     }
 
     #quote-text{
-    font-size: 2rem;
+    font-size: 1.8rem;
     }
 
     .order a{

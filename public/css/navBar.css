@@ -1,10 +1,9 @@
-/* .navbar img{
-    width: 5rem;
-    height: auto;
-} */
+body{
+    margin: 0;
+    padding: 0;
+}
 
 .navbar {
-    /* margin-top: 1px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,6 +14,8 @@
     background: transparent;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0, 5);
     z-index: 999;
+    position: absolute;
+    padding: 0;
 }
 
 

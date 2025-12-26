@@ -179,7 +179,7 @@ body {
 }
 
 .order{
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
     margin-bottom: 1.5rem;
@@ -197,9 +197,9 @@ body {
 }
 
 .order a:hover{
-    background-color: #DD0303;
+    background-color: #CFEEEEEE;
     border-radius: 20px;
-    color: #162530;
+    color: #000000;
     border: 2px solid #EEEEEE;
 }
 
@@ -272,5 +272,11 @@ body {
     }
     
 
+    
 }
 
+@media(max-width: 900px){
+    .menu-intro{
+        flex-direction: column;
+    }
+}

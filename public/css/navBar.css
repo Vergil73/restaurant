@@ -60,8 +60,8 @@ body{
 .navbar-container .nav-menu li a.active{
     color: #162530;
     /* background-color: rgba(188, 212, 229, 0.8); */
-    background-color: #DD0303;
-    border: 2px solid #FEF3E2;
+    background-color: #CFEEEEEE;
+    border: 2px solid #000000;
 }
 
 .navbar-toggle{

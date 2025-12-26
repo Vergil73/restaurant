@@ -61,32 +61,65 @@ body {
     animation: sweep 5s linear infinite;
 }
 
-
-.menu-intro{
-    display: flex;
-    gap: 3.3rem;          
-    padding: 10rem;
-    align-items: center;
-    text-align: left; 
-    max-width: 200000px;
-    flex-wrap: wrap;
-}
-
-.info{
-    text-align: left;
-    flex: 1;
-    padding: 2rem;
-}
-
-.image-menu > img{
-    width: 400px;
-    height: auto;
-}
-
 @keyframes sweep {
     0%   { background-position: 0% 50%; }
     100% { background-position: 100% 50%; }
 }
+
+
+#title{
+    font-size: 3rem;
+}
+
+#description{
+    font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+.menu-intro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    position: absolute;
+    padding: 3rem;
+    
+}
+
+.image-menu{
+    position: relative;
+    width: 100%;
+}
+
+
+.image-menu > img{
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
 
 .container{
     padding: 0;
@@ -228,4 +261,20 @@ body {
     .order a{
         font-size: 1.5rem;
     }
+
+
+    #title{
+        font-size: 2rem;
+    }
+
+    #description{
+        font-size: 1.3rem;
+    }
+
+
+    /* .menu-intro{
+        flex-direction: column;
+        padding: 0%;
+    } */
+
 }

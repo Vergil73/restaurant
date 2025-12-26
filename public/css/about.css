@@ -32,12 +32,12 @@
 
 .story {
     display: flex;
-    gap: 3.3rem;           /* THIS is the missing piece */
+    gap: 3.3rem;
     padding: 4rem;
     align-items: center;
     text-align: left; 
     max-width: 1100px;
-    margin: 0 auto;         /* center the whole section */ 
+    margin: 0 auto;        
 }
 
 .story-info {
@@ -98,6 +98,7 @@
     .team{
         gap: 1rem;
     }
-  
+
+ 
 
 }

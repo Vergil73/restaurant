@@ -20,7 +20,6 @@ body{
 .navbar.scrolled{
     background: rgba(0,0,0,0.3);
     position: fixed;
-    backdrop-filter: blur(10px); 
     transition: background-color 0.4s ease;
 }
 
@@ -108,6 +107,7 @@ body{
 
     .navbar-container .navbar-menu.active{
         display: flex;
+        width: 250px;
     }
 
     .navbar-toggle{
@@ -146,4 +146,7 @@ body{
         font-size: 1.2rem;
     }
     
+    .navbar-container .navbar-menu.active{
+        width: 150px;
+    }
 }

@@ -57,7 +57,7 @@
     padding: 2rem;
     gap: 5rem;
     max-width: 1100px;
-    margin: 4rem auto;   /* THIS is the key */
+    margin: 4rem auto;   
 }
 
 .team {
@@ -98,7 +98,5 @@
     .team{
         gap: 1rem;
     }
-
- 
 
 }

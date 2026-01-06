@@ -1,67 +1,138 @@
-
-.category-container{
-    padding: 5%;
-    display: flex;
-    justify-content: space-between;
+body {
+    margin: 0;
+    padding: 0;
 }
 
-.category{
-    border: none;
-    background-color: transparent;
-    color:#FEF3E2;
-    font-size: 1.3rem;
-    font-weight: 500;
-    border-radius: 50px;
-    cursor: pointer;
+
+#quote-text{
+    font-size: 4.5rem;
 }
 
-.category:hover{
-    color: #162530;  
-    background-color: rgba(188, 212, 229, 0.8);
-    border: 2px solid #FEF3E2;
-    border: 2-x solid transparent;
+.menu-wrapper{
+    background-color: rgb(25, 22, 26);
+    margin: 5rem;
+}
+
+
+.menu-head{
+    text-align: center; 
+    padding-top: 33px;
+}
+
+.menu-head a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #EEEEEE;
     transition: all 0.7s ease;
+    margin: 0 2rem ;
+    
 }
 
-
-#menu-head{
-    margin-top: 50px;
-    text-align: center;
+.menu-head a:hover{
+    text-decoration: underline;
 }
 
- .middle-part{
+.menu-overlay{
     display: flex;
-    flex-wrap: wrap;           /* allows wrapping on smaller screens */
-    justify-content: center;   /* center the cards horizontally */
-    gap: 20px;                 /* space between cards */
-    margin: 50px auto;
-    width: 100%;
-    max-width: 1200px;         /* total container width */
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.2705882353);   
 }
 
-.card {
-    background-color: rgba(250, 129, 47, 0.3);
-    padding: 20px;
-    flex: 1 1 300px;   
-    max-width: 500px;          /* optional max width */
-    display: flex;             /* to align image + text inside card */
-    flex-direction: column;    /* stack image + text vertically inside card */
-    align-items: center;
-    /* background-color: transparent; */
+.menu-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 3.5rem;
 }
 
-.card img {
+.menu-img{
+    width: 150px;
+    flex-shrink: 0;
+    margin-bottom: 2rem;
+}
+
+
+.menu-img  img{
     width: 100%;
-    height: 200px;      /* fixed visual height */
-    object-fit: cover; /* crop instead of stretch */
+    height: 230px;
     border-radius: 8px;
-}
-.info {
-    text-align: center;
+    object-fit: cover;
 }
 
-.socials img{
-    width: 3rem;
-    height: auto;
-    margin-bottom: 20px;
+#menu,
+#drinks {
+    scroll-margin-top: 80px;
+}
+
+
+
+.menu-info{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-info p{
+    margin: 0;
+}
+
+.title{
+    margin: 0;
+    font-size: 22px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.price{
+    font-size: 19px;
+}
+
+.description{
+    font-size: 19px;
+}
+
+.head-head{
+    text-align: center;
+    margin-top: 2rem;
+}
+
+@media(max-width: 800px){
+    .menu-box{
+        margin: 0;   
+        padding: 0;     
+    }
+
+   .menu-head{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+
+
+    .menu-overlay{
+        flex-direction: column;
+        align-items: center;
+        gap: 1.rem;
+    }
+
+    .menu-img{
+        width: 100%; 
+        max-width: 200px;
+    }
+
+    .menu-head a{
+        font-size: 1.3rem;
+    }
+
+    .menu-wrapper{
+        background-color:black;
+        margin: 1rem;
+    }
 }

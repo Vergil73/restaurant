@@ -5,17 +5,23 @@ body{
 
 .navbar {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 80px;
-    width: 100%;
-    position: sticky;
-    top: 0;
-    background: transparent;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0, 5);
-    z-index: 999;
     position: absolute;
-    padding: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: transparent;
+    justify-content: space-between;
+    z-index: 1000;
+    transition: background-color 0.1s ease;
+}
+
+
+.navbar.scrolled{
+    background: rgba(0,0,0,0.3);
+    position: fixed;
+    backdrop-filter: blur(10px); 
+    transition: background-color 0.4s ease;
 }
 
 
@@ -32,7 +38,7 @@ body{
 .navbar-logo {
     font-size: 2rem;
     font-weight: 600;
-    color: #fff;
+    color: #CFEEEE;
     text-decoration: none;
     cursor: pointer;
 }
@@ -46,21 +52,20 @@ body{
 
 .navbar-container .navbar-menu li a{
     text-decoration: none;
-    color:#fff;
+    color:#CFEEEE;
     font-size: 1.3rem;
     font-weight: 500;
     padding: 3px 20px;
     border-radius: 20px;
-    border: 2p solid transparent;
+    border: 2px solid transparent;
     transition: all 0.7s ease;
     white-space: nowrap;
 }
 
 .navbar-container .navbar-menu li a:hover,
-.navbar-container .nav-menu li a.active{
-    color: #162530;
-    /* background-color: rgba(188, 212, 229, 0.8); */
-    background-color: #CFEEEEEE;
+.navbar-container .navbar-menu li a.active{
+    color: #000000;
+    background-color: #CFEEEE;
     border: 2px solid #000000;
 }
 
@@ -77,11 +82,10 @@ body{
     width: 25px;
     height: 3px;
     margin: 5px;
-    background: #FEF3E2;
+    background: #CFEEEE;
     transition: all 0.3s ease-in-out;
 }
 
-/* Responsive Style */
 @media (max-width: 880px){
     .navbar{
         backdrop-filter: none;
@@ -142,10 +146,4 @@ body{
         font-size: 1.2rem;
     }
     
-}
-
-.socials {
-    margin-top: auto;
-    display: flex;
-    gap: 1rem;
 }

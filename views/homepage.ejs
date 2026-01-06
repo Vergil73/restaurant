@@ -10,7 +10,7 @@
 
     <link href='https://fonts.googleapis.com/css?family=Playfair' rel='stylesheet'>
 
-    <title> Resturant </title>
+    <title>Resturant</title>
 </head>
 
 <body>
@@ -18,16 +18,16 @@
     <%- include('templates/navBar.ejs'); -%>
 
     <div class="wrapper">
-         <img src="https://images.unsplash.com/photo-1657053460900-3a12f32b592f?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJlc3RhdXJhbnQlMjBmb29kfGVufDB8fDB8fHww" alt="Photo">
+        <img src="https://images.unsplash.com/photo-1657053460900-3a12f32b592f?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJlc3RhdXJhbnQlMjBmb29kfGVufDB8fDB8fHww" alt="Photo">
 
-            <div class="overlay"></div>
+        <div class="overlay"></div>
 
 
         <div class="head">
             <h1 id="name-restaurant">Restaurant's Name</h1>
             <h2 id="quote-text">taste you'll remember</h2>
             <div class="order">
-                <a href="#">Order By Call</a>
+                <a href="#">ORDER BY CALL</a>
             </div>
         </div>
         
@@ -38,21 +38,22 @@
     <div class="menu-intro">
         
 
-            <div class="info">
-                <h2 id="title">Our Story</h2>
-                <p id="description">This place started with hunger, curiosity, and a refusal to settle for forgettable food. We cook with real ingredients, a lot just meals. Come hungry. Leave happy. That's the whole idea.
-                </p>
-                <div class="order">
-                    <a href="/menu">See Our Menu </a>
-                </div>
+        <div class="info">
+            <h2 id="title">Our Story</h2>
+            <p id="description">This place started with hunger, curiosity, and a refusal to settle for forgettable food. We cook with real ingredients, a lot just meals. Come hungry. Leave happy. That's the whole idea.
+            </p>
+            <div class="order">
+                <a href="/menu">SEE OUR MENU</a>
             </div>
+        </div>
 
-            <div class="image-menu">
-                <img src="https://images.unsplash.com/photo-1556761223-4c4282c73f77?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGFyayUyMGZvb2QlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHx8MA%3D%3D">
-            
-            </div>
+        <div class="image-menu">
+            <!-- <img src="https://images.unsplash.com/photo-1556761223-4c4282c73f77?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGFyayUyMGZvb2QlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHx8MA%3D%3D"> -->
+            <img src="/photos/momo.png">
             
         </div>
+            
+    </div>
 
 
     <section class="container">
@@ -70,40 +71,12 @@
         </div>
     </section>
 
-   
-    <section class="footer">
-        <div class="address">
-            <ul>
-                <li>Kathmandu, Hanuman Dhoka</li>
-                <li>+97 000000000</li>
-                <li>example@gmail.com</li>
-                <li>
-                    <a href="https://www.google.com/maps/place/Hetauda/@27.4206429,84.708446,10z/data=!3m1!4b1!4m6!3m5!1s0x39eb497ced46c917:0xafb8902c7a4532ab!8m2!3d27.4310018!4d85.0319975!16zL20vMGd5Z3Rx?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" class="get-direction">Get Directions</a>
-                </li>
-            </ul>
-        </div>
+    <%- include('templates/footer.ejs'); -%>
 
-       
-
-        <div class="opening-hours">
-            <ul>
-                <li id="head-openinghour">Opening Hours</li>
-                <li>Sunday-Thursday: 12:00pm-10:30pm</li>
-                <li>Friday-Saturday: 10:00pm-5:00pm</li>
-            </ul>
-        </div>
-
-        <div class="copyright">
-            <p>© 2025. All rights reserved. <a href="whatsapp://send?abid=9821859944&text=Hello%2C%20World!" id="personal">Created by Klein.</a></p>
-        </div>
-
-
-        </div>
     </section>
     
 </body>
 </html>
-
 
 
 

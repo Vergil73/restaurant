@@ -1,13 +1,34 @@
-* {
- 
-    box-sizing: border-box;
-}
-
  body{
-    padding-top: 10px;
-    font-family: playfair;
+    font-family: playfair, 'Times New Roman', Times, serif;
     color: #FEF3E2;
     min-height: 100vh;
-    /* background: url(/photos/image.png) no-repeat center center/cover;  */
     background: #000000;
  }
+
+ .wrapper {
+    position: relative;
+    text-align: center;
+    height: clamp(40vh, 85vh, 100vh);
+    overflow: hidden; 
+}
+
+.wrapper > img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   display: block;
+}
+
+.overlay {
+   position: absolute;
+   inset: 0;
+   background: rgba(0, 0, 0, 0.60);
+}
+
+.head {
+   position: absolute;
+   text-align: center;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}

@@ -1,0 +1,56 @@
+
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    backdrop-filter: blur(20px);  
+    font-size: 1.2rem;
+}
+
+.footer > div {
+    /* min-width: 220px; */
+    margin: 1rem;
+}
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+.socials{
+    display: flex;
+    width: 150px;
+}
+
+.socials img{
+    width: 100%;
+    height: auto;
+}
+
+.address ul li{
+    list-style: none;
+}
+
+.get-direction{
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 1.1rem;
+    color: #EEEEEE;
+}
+
+.opening-hours ul li{
+    list-style: none;
+}
+
+#head-openinghour{
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+#personal{
+    color:#EEEEEE
+}

@@ -4,46 +4,23 @@ body {
 }
 
 
-.wrapper {
-    position: relative;
-    text-align: center;
-    height: clamp(40vh, 85vh, 100vh);
-    overflow: hidden; 
-    /* margin-bottom: 8rem; */
 
-
-}
-
-.wrapper > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-}
-
-
-
-.head {
+/* .head {
     position: absolute;
     text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 
 #name-restaurant{
     font-size: 4.5rem;
+    /* font-family: Rye; */
 }
 
 #quote-text {
     font-size: clamp(2.5rem, 8vw, 4.5rem);
     font-size: 2.5rem;
-    /* font-size: clamp(1rem, 3vw, 2rem); */
     font-weight: 1000;
     text-align: center;
     margin-top: -50px;
@@ -76,13 +53,6 @@ body {
 }
 
 
-
-
-
-
-
-
-
 .menu-intro {
     display: flex;
     align-items: center;
@@ -109,12 +79,6 @@ body {
     flex: 1;
     text-align: left;
 }
-
-
-
-
-
-
 
 
 
@@ -201,51 +165,6 @@ body {
     border-radius: 20px;
     color: #000000;
     border: 2px solid #EEEEEE;
-}
-
-.footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    backdrop-filter: blur(20px);  
-    font-size: 1.2rem;
-}
-
-.footer > div {
-    min-width: 220px;
-    margin: 1rem;
-}
-
-.address ul li{
-    list-style: none;
-}
-
-.get-direction{
-    display: inline-block;
-    margin-top: 0.8rem;
-    font-size: 1.1rem;
-    color: #EEEEEE;
-}
-
-.opening-hours ul li{
-    list-style: none;
-}
-
-#head-openinghour{
-    font-size: 1.5rem;
-    font-weight: bold;
-
-}
-
-.copyright {
-    width: 100%;
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 1rem;
-}
-
-#personal{
-    color:#EEEEEE
 }
 
 

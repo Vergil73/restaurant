@@ -1,63 +1,64 @@
-.wrapper {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding: 2%;
-    flex-direction: column;
-    font-size: 1.1rem;
+#about-heading{
+    font-size: 4.5rem;
 }
 
-.head {
-    background: url(/photos/background.png) no-repeat center / cover;
-    padding: 4rem;
-    text-align: left;
-    border-radius: 8.5px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
+
 
 #title{
-    max-width: 600px;
-    width: 100%;
-    font-size: 2rem;
-    color: #FAB12F;
+    font-size: 3rem; 
 }
 
 #description{
-    max-width: 600px;
-    width: 100%;
-    font-size: 1.2rem;
-    color: #FEF3E2;
+    font-size: 1.5rem;
 }
 
-.story {
+
+.menu-intro {
     display: flex;
-    gap: 3.3rem;
-    padding: 4rem;
     align-items: center;
-    text-align: left; 
-    max-width: 1100px;
-    margin: 0 auto;        
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-.story-info {
-    flex: 1;
+
+.image-menu{
+    flex: 0 0 45%;
 }
 
-.image img {
-    width: 400px;
-    height: auto;
+
+.image-menu > img{
+    width: 100%;
+    height: auto; 
+    object-fit: cover;
     border-radius: 8px;
 }
 
+
+.info{
+    flex: 1;
+    text-align: left;
+}
+
+
+
 .feature {
     display: flex;
-    background-color: rgba(250, 129, 47, 0.3);
     text-align: center;
     padding: 2rem;
     gap: 5rem;
     max-width: 1100px;
     margin: 4rem auto;   
+}
+
+
+.last-head{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 3rem;
+        background-color: #111111;
 }
 
 .team {
@@ -79,6 +80,27 @@
 }
 
 @media(max-width: 800px){
+    #name-restaurant{
+        font-size: 3.4rem;
+    }
+
+    #quote-text{
+    font-size: 1.8rem;
+    }
+
+    .order a{
+        font-size: 1.5rem;
+    }
+
+
+    #title{
+        font-size: 2rem;
+    }
+
+    #description{
+        font-size: 1rem;
+    }
+
     .story{
         padding: 0.5rem;
         flex-direction: column;
@@ -91,6 +113,7 @@
 
     .feature {
         flex-direction: column;
+        background-color: none;
         padding: 0.5rem 0;
         gap: 0.1rem;
     }
@@ -98,5 +121,10 @@
     .team{
         gap: 1rem;
     }
+}
 
+@media(max-width: 900px){
+    .menu-intro{
+        flex-direction: column;
+    }
 }

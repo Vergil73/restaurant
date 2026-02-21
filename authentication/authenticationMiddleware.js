@@ -1,31 +1,30 @@
 async function isUser(req, res, next){
     try {
         
-        if(req.session.id){
-            
+        if(req.session.userId){
+            next();
         } else{
-            res.render('login', {error: "You must be logged in as a user"});
-        }
+            res.render('authentication/login', {error: "You must be logged in as a user"});
+        } 
 
 
     } catch (error) {
         console.log('Error in is User middleware: ', error);     
     }
-}
+};
 
 async function isAdmin(req, res, next){
     try {
-        
-        if(req.session.role){
+        if(req.session.role === true){
             next();
         }else{
-            res.render('login', {error: "You must be logged in as a user"});
+            res.render('homepage', {error: "Admin Only"});
         }
 
     } catch (error) {
-        console.log('Error in is User middleware: ', error);     
+        console.log('Error in isAdmin middleware: ', error);     
     }
-}
+};
 
 
 module.exports =  { isUser, isAdmin };

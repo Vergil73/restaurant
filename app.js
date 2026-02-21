@@ -17,6 +17,8 @@ app.use(session({
     }
 }))
 
+
+
 // views
 app.set('views', './views');
 app.set('view engine', 'ejs');
@@ -57,6 +59,10 @@ app.use('/', aboutUs);
 // Reservatio page
 const reservation = require('./reservation/reservationRoute');
 app.use('/', reservation);
+
+// All Reservation 
+const allReservation = require('./reservation/reservationRoute');
+app.use('/', allReservation);
 
 
 app.listen(process.env.PORT || 3000, () => {

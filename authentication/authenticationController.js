@@ -88,9 +88,9 @@ async function loginAccount(req, res) {
                                                                                                         
         if(username === usernameDb && passwordCmpr){
 
-            // Remebers the logged in user and it's role for authentication middleware and protected routes
+            // Remebers the logged in user and it's role for authentication middleware and protected routes and has nothing to do with the actual session cookie so stop being confused here
             req.session.role = roledb;
-            req.session.id = userId;
+            req.session.userId = userId;
         
 
             res.redirect('/');

@@ -5,10 +5,21 @@ const routes = Router();
 const { isUser } = require('../authentication/authenticationMiddleware');
 const { isAdmin } = require('../authentication/authenticationMiddleware');
 
-routes.get('/reservation',isUser, (req, res) => {
-    res.render('reservation/reservation');
-});
+// Reservation Page and Data For Individual User
+const { reservationData } = require('./reservationController');
 
+routes.get('/reservation', reservationData);
+
+// Making Post request for reserving the table
+const { reservation } = require('./reservationController');
+routes.post('/make-reservation', reservation);
+
+// Single reservation after successfully making reservation
+// routes.get('/reservation/b', (req, res) => {
+//     res.render('reservation/singleReservation');
+// });
+
+// Showing all reservation made at once for Admin only
 routes.get('/all-reservation', isAdmin, (req, res) => {
     res.render('reservation/allReservation');
 });

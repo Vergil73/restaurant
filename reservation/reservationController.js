@@ -1,0 +1,95 @@
+const { pool } = require('../data/dbConnection');
+
+// Sanitizing use inputs
+
+function timeValidator(time){
+
+    const regexTime = /^(0?[1-9]|1[0-2]):[0-5][0-9] (AM|PM)$/;
+
+    if(time.length === 0 && typeof(time) === 'string'){
+        return false;
+    } if(regexTime.test(time) === true){
+        return true;
+    } else{
+        return false;
+    }
+}
+
+// function peopleValidator(people){
+//     const regexPeople = /[0-9]g/;
+
+//     if(people.length === 0 && typeof(people) === 'string'){
+//         return false;
+//     } if(regexPeople.test(people) === true){
+//         return true;
+//     } else{
+//         return false;
+//     }
+// }
+
+// Getting The reservation Data for a single user
+async function reservationData(req, res) {
+    try {
+
+        const { rows } = await pool.query('SELECT user_id FROM reservation');     
+        
+        console.log(req.session.userId);
+
+        // Uses some to return the bool value to check wether user exists or not
+        const userExist = rows.some(row => {
+            return row.user_id === req.session.userId;
+        }); 
+
+        //  Checks if user is logged in or not
+        if(!req.session.userId){
+            return res.render('reservation/reservation', { error:'User not Logged in'});
+        } 
+        // Checks if user exists in the reservation database or not
+        else if(!userExist){
+            return res.render('reservation/reservation', { error:'No reservation made yet..'});
+        }
+        // If user exist in reservation database get the reservation data 
+        else{
+            const user_Id = req.session.userId;
+            const { rows } = await pool.query('SELECT date, people, time FROM reservation WHERE user_id  = $1', [user_Id]);
+            const date = rows[0].date;
+            const people = rows[0].people;
+            const time = rows[0].time;
+            res.render('reservation/reservation', { date, people, time,  user_Id}); 
+        }
+  
+    } catch (error) {
+        console.log('Error in getting Reservation Data: ', error);        
+    }
+}
+
+
+// Making reservation for a single user
+async function reservation(req, res){
+    try{
+
+        const time = req.body.time;
+
+        if(!timeValidator(time)){
+            return res.render('reservation/reservation', { error:'Invalid Time Input'})
+        }
+
+        const date = req.body.date;
+        const people = req.body.people;
+        const userId = req.session.userId;
+
+        // Checks whether user is logged in or not
+        if(!userId){
+            return res.render('reservation/reservation', { error:'User not Logged in'});
+        }
+
+        await pool.query('INSERT INTO reservation (time, date, people, user_Id) VALUES ($1, $2, $3, $4)', [ time, date, people, userId]);
+        // res.redirect('/');
+
+
+    } catch(error){
+        console.log('Error in making reservation with POST request: ', error);
+    }
+};
+
+module.exports = { reservation, reservationData };

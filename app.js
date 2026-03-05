@@ -64,6 +64,10 @@ app.use('/', reservation);
 const allReservation = require('./reservation/reservationRoute');
 app.use('/', allReservation);
 
+// Single Reservation
+// const singleReservation = require('./reservation/reservationRoute');
+// app.use('/', singleReservation);
+
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`Server Is Running On Port ${process.env.PORT}`);

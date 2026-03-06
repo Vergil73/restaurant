@@ -15,8 +15,7 @@ app.use(session({
         maxAge:  1000 * 60 * 60 * 24,
         secure: false, //change this to true when using https
     }
-}))
-
+}));
 
 
 // views
@@ -56,7 +55,8 @@ app.use('/', contact);
 const aboutUs = require('./routes/aboutUs');
 app.use('/', aboutUs);
 
-// Reservatio page
+//Reservation Section
+// Reservation page
 const reservation = require('./reservation/reservationRoute');
 app.use('/', reservation);
 
@@ -64,14 +64,12 @@ app.use('/', reservation);
 const allReservation = require('./reservation/reservationRoute');
 app.use('/', allReservation);
 
-// Single Reservation
-// const singleReservation = require('./reservation/reservationRoute');
-// app.use('/', singleReservation);
-
+// Error Handling
+// Catches every page that doesn't exist in this server
+app.use((req, res) => {
+    res.status(404).send('Sorry, page not found!');
+});
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`Server Is Running On Port ${process.env.PORT}`);
-})
-
-
-// express, ejs, pg, nodemon, dotenv
+});

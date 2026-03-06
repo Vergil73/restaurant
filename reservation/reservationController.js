@@ -1,7 +1,6 @@
 const { pool } = require('../data/dbConnection');
 
 // Sanitizing use inputs
-
 function timeValidator(time){
 
     const regexTime = /^(0?[1-9]|1[0-2]):[0-5][0-9] (AM|PM)$/;
@@ -30,11 +29,8 @@ function timeValidator(time){
 // Getting The reservation Data for a single user
 async function reservationData(req, res) {
     try {
-
-        const { rows } = await pool.query('SELECT user_id FROM reservation');     
+        const { rows } = await pool.query('SELECT user_id FROM reservation'); 
         
-        console.log(req.session.userId);
-
         // Uses some to return the bool value to check wether user exists or not
         const userExist = rows.some(row => {
             return row.user_id === req.session.userId;
@@ -44,10 +40,12 @@ async function reservationData(req, res) {
         if(!req.session.userId){
             return res.render('reservation/reservation', { error:'User not Logged in'});
         } 
+
         // Checks if user exists in the reservation database or not
         else if(!userExist){
             return res.render('reservation/reservation', { error:'No reservation made yet..'});
         }
+
         // If user exist in reservation database get the reservation data 
         else{
             const user_Id = req.session.userId;
@@ -67,13 +65,13 @@ async function reservationData(req, res) {
 // Making reservation for a single user
 async function reservation(req, res){
     try{
-
+        // Getting inputs from the user
         const time = req.body.time;
-
         if(!timeValidator(time)){
             return res.render('reservation/reservation', { error:'Invalid Time Input'})
         }
 
+        // Got too lazy to validate these input field or simply don't know how..
         const date = req.body.date;
         const people = req.body.people;
         const userId = req.session.userId;
@@ -83,13 +81,31 @@ async function reservation(req, res){
             return res.render('reservation/reservation', { error:'User not Logged in'});
         }
 
+        // Inserts data into the reservation database
         await pool.query('INSERT INTO reservation (time, date, people, user_Id) VALUES ($1, $2, $3, $4)', [ time, date, people, userId]);
-        // res.redirect('/');
-
+        res.redirect('/');
 
     } catch(error){
         console.log('Error in making reservation with POST request: ', error);
     }
 };
 
-module.exports = { reservation, reservationData };
+// Reservation page for admin
+async function adminReservation(req, res) {
+    try {
+        // Uses Inner Join method for retrieving information from 2 different tables and it worked...lol
+        const { rows } = await pool.query('SELECT users.user_id AS user_id, username, reservation.user_id AS user_id, date, people, time FROM users INNER JOIN reservation ON users.user_id = reservation.user_id')
+
+        // When reservation database is empty
+        if(rows.length === 0){
+            return res.render('reservation/allReservation', { error: 'No Reservation Made.' });
+        }
+
+        res.render('reservation/allReservation', { rows });
+        
+    } catch (error) {
+        console.log('Error in the Admin Reservation Page: ', error);        
+    }    
+}
+
+module.exports = { reservation, reservationData, adminReservation };

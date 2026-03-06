@@ -17,6 +17,19 @@ app.use(session({
     }
 }));
 
+// Global middleware
+// check wether the user is logged in or not(ejs file) for showing the button
+app.use((req, res, next) => {
+  res.locals.userId = req.session.userId;
+  next();
+});
+
+// Checks wether the user is admin(ejs file) for reservaion button
+app.use((req, res, next) => {
+    res.locals.role = req.session.role;
+    next();
+})
+
 
 // views
 app.set('views', './views');

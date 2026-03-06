@@ -16,19 +16,22 @@
             <li><a href="/menu">MENU</a></li>
             <li><a href="/aboutUs">ABOUT US</a></li>
 
-                <li><a href="/login">LOGIN</a></li>
-
-                <form action="/logout">
-                    <li><a href="/login">LOGOUT</a></li>
-                </form>
-                    
-                <li><a href="/reservation">RESERVATION</a></li>
-                <li><a href="/all-reservation">ALL RESERVATION</a></li>
 
 
-                
+                <% if(userId){ %>
+                    <form action="/logout" method="POST">
+                        <li><button>LOGOUT</button></li>
+                    </form>
+                <% } else{ %> 
+                    <li><a href="/login">LOGIN</a></li>
+                <% }%>
 
-      
+                <% if(role){ %>
+                    <li><a href="/all-reservation">ALL RESERVATION</a></li>
+                <% } else if(userId){ %>
+                    <li><a href="/reservation">RESERVATION</a></li>
+                <% } else{}%>
+            
             
 
             <!-- <li><a href="/contact">CONTACT US</a></li> -->

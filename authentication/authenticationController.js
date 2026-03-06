@@ -91,8 +91,7 @@ async function loginAccount(req, res) {
             // Remebers the logged in user and it's role for authentication middleware and protected routes and has nothing to do with the actual session cookie so stop being confused here
             req.session.role = roledb;
             req.session.userId = userId;
-        
-
+    
             res.redirect('/');
         } else{
             return res.render('authentication/login', { error: 'Invalid Credentials. Try Again' });
@@ -101,7 +100,14 @@ async function loginAccount(req, res) {
     } catch (error) {
         console.log('Error in logging accout POST request ', error);        
     }
-
 }
 
-module.exports = { createAccount, loginAccount };
+// Lohout
+function logout(req, res){
+    req.session.destroy(() => {
+		res.clearCookie("sessionId");
+		res.redirect("/");
+	});
+}
+
+module.exports = { createAccount, loginAccount, logout };

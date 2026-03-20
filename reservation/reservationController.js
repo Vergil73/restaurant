@@ -3,12 +3,12 @@ const nodemailer = require("nodemailer");
 
 // Sending email the admin on reservation made
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
+  host: process.env.hostmail,
+  port: process.env.port,
   secure: false, // Use true for port 465, false for port 587
   auth: {
-    user: "jl6892139@gmail.com",
-    pass: "cump otel lkmh ctcn ",
+    user: process.env.userGmail,
+    pass: process.env.userPass
   },
 });
 
@@ -47,6 +47,7 @@ async function reservationData(req, res) {
         const userExist = rows.some(row => {
             return row.user_id === req.session.userId;
         }); 
+
 
         //  Checks if user is logged in or not
         if(!req.session.userId){
@@ -152,13 +153,13 @@ async function confirmReservation(req, res){
     } catch (error) {
         console.log('Error in Confirm Reservation ', error);
     }
-}
+};
 
 // Cancel reservation request for admin
 async function cancelReservation(req, res){
     try {
         
-        const { rows } = await pool.query('SELECT * FROM reservation');
+        const { rows } = await pool.query('SELECT reservation_id FROM reservation');
         console.log(rows);
 
         res.redirect('/all-reservation');
@@ -166,6 +167,6 @@ async function cancelReservation(req, res){
     } catch (error) {
         console.log('Error in Confirm Reservation ', error);
     }
-}
+};
 
 module.exports = { reservation, reservationData, adminReservation, confirmReservation, cancelReservation };

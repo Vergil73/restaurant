@@ -1,3 +1,4 @@
+// Middleware to protect routes
 async function isUser(req, res, next){
     try {
         
@@ -6,7 +7,6 @@ async function isUser(req, res, next){
         } else{
             res.render('authentication/login', {error: "You must be logged in as a user"});
         } 
-
 
     } catch (error) {
         console.log('Error in is User middleware: ', error);     
@@ -25,6 +25,5 @@ async function isAdmin(req, res, next){
         console.log('Error in isAdmin middleware: ', error);     
     }
 };
-
 
 module.exports =  { isUser, isAdmin };

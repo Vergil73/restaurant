@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express');
 const app = express();
 const path = require('path');
+const flash = require('connect-flash');
 
 // Express-Session
 const session = require('express-session');
@@ -17,18 +18,18 @@ app.use(session({
     }
 }));
 
+// connect-flash for notifications
+app.use(flash());
+
 // Global middleware
-// check wether the user is logged in or not(ejs file) for showing the button
+// Global variable using res.locals for ejs 
 app.use((req, res, next) => {
-  res.locals.userId = req.session.userId;
+    res.locals.userId = req.session.userId; // Logged in User's id
+    res.locals.role = req.session.role; // Checks for admin role
+    res.locals.sucess_login = req.flash('sucess_login'); // Successfull login message
+    res.locals.sucess_logout = req.flash('sucess_logout');
   next();
 });
-
-// Checks wether the user is admin(ejs file) for reservaion button
-app.use((req, res, next) => {
-    res.locals.role = req.session.role;
-    next();
-})
 
 
 // views
@@ -82,6 +83,7 @@ app.use('/', allReservation);
 app.use((req, res) => {
     res.status(404).send('Sorry, page not found!');
 });
+
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`Server Is Running On Port ${process.env.PORT}`);

@@ -1,5 +1,6 @@
 const { Pool } = require('pg');
 
+// Creating a connection to the postgres database
 const pool = new Pool({
     user: process.env.db_user,
     password: process.env.db_password,

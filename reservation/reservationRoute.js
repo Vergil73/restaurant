@@ -17,4 +17,13 @@ routes.post('/make-reservation', reservation);
 const { adminReservation } = require('./reservationController');
 routes.get('/all-reservation', adminReservation);
 
+// Confirm reservation request for admin
+const { confirmReservation } = require('./reservationController');
+routes.post('/confirm-reservation', confirmReservation);
+
+// Cancel reservation request for admin
+const { cancelReservation } = require('./reservationController');
+routes.post('/cancel-reservation', cancelReservation);
+
+
 module.exports = routes;

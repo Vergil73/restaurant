@@ -1,4 +1,16 @@
 const { pool } = require('../data/dbConnection');
+const nodemailer = require("nodemailer");
+
+// Sending email the admin on reservation made
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false, // Use true for port 465, false for port 587
+  auth: {
+    user: "jl6892139@gmail.com",
+    pass: "cump otel lkmh ctcn ",
+  },
+});
 
 // Sanitizing use inputs
 function timeValidator(time){
@@ -83,6 +95,26 @@ async function reservation(req, res){
 
         // Inserts data into the reservation database
         await pool.query('INSERT INTO reservation (time, date, people, user_Id) VALUES ($1, $2, $3, $4)', [ time, date, people, userId]);
+
+        
+        
+
+        const db = await pool.query('SELECT users.user_id AS user_id, username, reservation.user_id AS user_id FROM users INNER JOIN reservation ON users.user_id = reservation.user_id WHERE users.user_id=$1', [userId] );
+        const resultUsername = db.rows[0].username;
+
+        // Sending a reservation message to the admin via gmail
+        const info = await transporter.sendMail({
+            from: "Restaurant Costumer",
+            to: "jl6892139@gmail.com",
+            subject: "Reservation",
+            text: `Reservation Requested by ${resultUsername}
+             Name: ${resultUsername} 
+             Time: ${time} 
+             Date: ${date} 
+             People: ${people}`,
+        });
+    
+
         res.redirect('/');
 
     } catch(error){
@@ -94,7 +126,7 @@ async function reservation(req, res){
 async function adminReservation(req, res) {
     try {
         // Uses Inner Join method for retrieving information from 2 different tables and it worked...lol
-        const { rows } = await pool.query('SELECT users.user_id AS user_id, username, reservation.user_id AS user_id, date, people, time FROM users INNER JOIN reservation ON users.user_id = reservation.user_id')
+        const { rows } = await pool.query('SELECT users.user_id AS user_id, username, reservation.user_id AS user_id, date, people, time FROM users INNER JOIN reservation ON users.user_id = reservation.user_id');
 
         // When reservation database is empty
         if(rows.length === 0){
@@ -108,4 +140,32 @@ async function adminReservation(req, res) {
     }    
 }
 
-module.exports = { reservation, reservationData, adminReservation };
+// Confirm reservation request for admin
+async function confirmReservation(req, res){
+    try {
+        
+        // Use reservation_id to delete the reservation from the reservation table
+
+        
+
+
+    } catch (error) {
+        console.log('Error in Confirm Reservation ', error);
+    }
+}
+
+// Cancel reservation request for admin
+async function cancelReservation(req, res){
+    try {
+        
+        const { rows } = await pool.query('SELECT * FROM reservation');
+        console.log(rows);
+
+        res.redirect('/all-reservation');
+
+    } catch (error) {
+        console.log('Error in Confirm Reservation ', error);
+    }
+}
+
+module.exports = { reservation, reservationData, adminReservation, confirmReservation, cancelReservation };

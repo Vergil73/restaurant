@@ -1,10 +1,11 @@
 
 const { pool } = require('../data/dbConnection');
 const bcrypt = require('bcrypt');
+// const flash = require('connect-flash');
 
 
 // Creating a new account
-
+// Input Sanitaization
 function usernameValidator(username){
     const regexUser = /[-'/`~!#*$@%+=.,^&(){}[\]|;:”<>?\\]/; //Checks for any special characters
     if(username.length === 0 || username.length > 55 || typeof username !== 'string'){
@@ -58,7 +59,6 @@ async function createAccount(req, res) {
 
 
 // Account Login
-
 async function loginAccount(req, res) {
     try {
 
@@ -84,30 +84,37 @@ async function loginAccount(req, res) {
             const passwordDb = rows[0].password_hash;
             const roledb = rows[0].role;
             const passwordCmpr  = await bcrypt.compare(plainPassword, passwordDb);
+            
 
-                                                                                                        
         if(username === usernameDb && passwordCmpr){
 
             // Remebers the logged in user and it's role for authentication middleware and protected routes and has nothing to do with the actual session cookie so stop being confused here
             req.session.role = roledb;
             req.session.userId = userId;
-    
+            req.flash('sucess_login', 'Sucessfully Logged In');
             res.redirect('/');
         } else{
             return res.render('authentication/login', { error: 'Invalid Credentials. Try Again' });
         }      
+
         
     } catch (error) {
         console.log('Error in logging accout POST request ', error);        
     }
 }
 
-// Lohout
+// Logout
 function logout(req, res){
-    req.session.destroy(() => {
-		res.clearCookie("sessionId");
-		res.redirect("/");
-	});
+    
+
+    if(req.sesssion)
+        {req.session.destroy( () => {
+		    return res.clearCookie("sessionId");
+	    });
+    };
+    req.flash('sucess_logout', 'Logout Sucessfull');
+    res.redirect("/");
+    
 }
 
 module.exports = { createAccount, loginAccount, logout };

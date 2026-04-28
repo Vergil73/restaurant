@@ -1,12 +1,26 @@
 const { Pool } = require('pg');
 
 // Creating a connection to the postgres database
+// const pool = new Pool({
+//     user: process.env.db_user,
+//     password: process.env.db_password,
+//     host: process.env.db_host,
+//     port: process.env.db_PORT,
+//     database: process.env.database
+// });
+
+    // PGHOST, PGDATABASE, PGUSER, PGPASSWORD, PGSSLMODE, PGCHANNELBINDING
+
+
 const pool = new Pool({
-    user: process.env.db_user,
-    password: process.env.db_password,
-    host: process.env.db_host,
-    port: process.env.db_PORT,
-    database: process.env.database
+    host: process.env.PGHOST,
+    database: process.env.PGDATABASE,
+    username: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    port: 5432,
+    ssl: {
+        require: true
+    }
 });
 
 pool.on('error', (err, client) => {
@@ -20,6 +34,6 @@ pool.connect()
 
 
 module.exports = { pool };
-
+5
 
 // user: postgres, pwd: tracker123 

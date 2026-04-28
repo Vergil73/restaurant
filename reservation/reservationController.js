@@ -109,10 +109,10 @@ async function reservation(req, res){
             to: "jl6892139@gmail.com",
             subject: "Reservation",
             text: `Reservation Requested by ${resultUsername}
-             Name: ${resultUsername} 
-             Time: ${time} 
-             Date: ${date} 
-             People: ${people}`,
+                Name: ${resultUsername} 
+                Time: ${time}
+                Date: ${date} 
+                People: ${people}`
         });
     
 
@@ -128,6 +128,10 @@ async function adminReservation(req, res) {
     try {
         // Uses Inner Join method for retrieving information from 2 different tables and it worked...lol
         const { rows } = await pool.query('SELECT users.user_id AS user_id, username, reservation.user_id AS user_id, date, people, time FROM users INNER JOIN reservation ON users.user_id = reservation.user_id');
+        
+
+        const result  = await pool.query('SELECT reservation_id FROM reservation');
+        console.log(result.rows.reservation_id);
 
         // When reservation database is empty
         if(rows.length === 0){
@@ -159,6 +163,7 @@ async function confirmReservation(req, res){
 async function cancelReservation(req, res){
     try {
         
+
         const { rows } = await pool.query('SELECT reservation_id FROM reservation');
         console.log(rows);
 

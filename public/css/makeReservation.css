@@ -1,0 +1,85 @@
+body {
+    font-family: Playfair, 'Times New Roman', Times, serif;
+    color: #FEF3E2;
+    background: #000;
+    margin: 0;
+}
+
+/* Main card */
+.wrapper {
+    max-width: 600px;
+    margin: 6rem auto;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    background: #161616;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* Headings */
+.wrapper h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.wrapper h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #aaa;
+    margin-bottom: 2rem;
+}
+
+/* Form layout */
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Inputs + selects */
+.form-container select,
+.form-container input {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #0f0f0f;
+    color: #FEF3E2;
+    font-size: 1rem;
+}
+
+/* Focus effect */
+.form-container select:focus,
+.form-container input:focus {
+    outline: none;
+    border-color: #CFEEEE;
+}
+
+/* Button */
+.form-container form button {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: none;
+
+    background: #CFEEEE;
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.form-container form button:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Reservation output */
+.reservation-description {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: #ddd;
+}

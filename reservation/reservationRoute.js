@@ -7,7 +7,7 @@ const { isAdmin } = require('../authentication/authenticationMiddleware');
 
 // Reservation Page and Data For Individual User
 const { reservationData } = require('./reservationController');
-routes.get('/reservation', reservationData);
+routes.get('/reservation',isUser, reservationData);
 
 // Making Post request for reserving the table
 const { reservation } = require('./reservationController');
@@ -15,7 +15,7 @@ routes.post('/make-reservation', reservation);
 
 // Showing all reservation made at once for Admin only
 const { adminReservation } = require('./reservationController');
-routes.get('/all-reservation', adminReservation);
+routes.get('/all-reservation',isAdmin, adminReservation);
 
 // Confirm reservation request for admin
 const { confirmReservation } = require('./reservationController');
@@ -27,7 +27,7 @@ routes.post('/cancel-reservation', cancelReservation);
 
 // Verified Reservation page
 const { verifiedReservation } = require('./reservationController');
-routes.get('/verified-reservation', verifiedReservation);
+routes.get('/verified-reservation',isAdmin, verifiedReservation);
  
 
 module.exports = routes;

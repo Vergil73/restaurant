@@ -17,47 +17,41 @@
 
     <div class="wrapper">
 
-    <h1>All Reservation</h1>
+        <h1>All Reservation</h1>
 
-        <% if(cancelReservation){ %>
-           <p style="color: green;"><%= cancelReservation  %><p>         
-        <% } else{} %>
-        
-        
-    
+            <% if(cancelReservation){ %>
+            <p style="color: green;"><%= cancelReservation  %><p>         
+            <% } else{} %>
+                   
 
-     <% if (locals.error) { %>
-        <p style="color: red;"><%= error %></p>
-    <% } else{ %>
-        <% rows.forEach((rows) => { %>
+        <% if (locals.error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } else{ %>
+            <% rows.forEach((rows) => { %>
 
-            <div class="reservation-description">
-                <p><strong>Name: </strong><%= rows.username %></p>
-                <p><strong>Time: </strong> <%= rows.time %></p>
-                <p><strong>Total People: </strong> <%= rows.people %></p>
-                <p><strong>Date: </strong> <%= rows.date %></p>
-            </div>
-           
-            <div class="form-container">
-                <form method="POST" action="/confirm-reservation">
+                <div class="reservation-description">
+                    <p><strong>Name: </strong><%= rows.username %></p>
+                    <p><strong>Time: </strong> <%= rows.time %></p>
+                    <p><strong>Total People: </strong> <%= rows.people %></p>
+                    <p><strong>Date: </strong> <%= rows.date %></p>
+                </div>
+            
+                <div class="form-container">
+                    <form method="POST" action="/confirm-reservation">
+                        <input type="hidden" id="reservation_id" name="reservation_id" value="<%= rows.reservation_id %>"> 
+                        <button type="submit">Confirm</button>
+                    </form>
+                    <form method="POST" action="/cancel-reservation">
                     <input type="hidden" id="reservation_id" name="reservation_id" value="<%= rows.reservation_id %>"> 
-                    <button type="submit">Confirm</button>
-                </form>
-                <form method="POST" action="/cancel-reservation">
-                <input type="hidden" id="reservation_id" name="reservation_id" value="<%= rows.reservation_id %>"> 
 
-                        <button type="submit">Cancel</button>
-                </form>
-            </div>
+                            <button type="submit">Cancel</button>
+                    </form>
+              </div>
+              
+            <% }) %>
+        <% } %>
 
-           
-
-           <br>
-
-        <% }) %>
-    <% } %>
-
-        </div>
+    </div>
 
   
     <%- include('../templates/footer.ejs'); -%>

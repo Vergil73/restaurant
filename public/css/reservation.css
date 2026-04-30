@@ -1,7 +1,7 @@
  body{
     font-family: playfair, 'Times New Roman', Times, serif;
     color: #FEF3E2;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     background: #000000;
  }
 
@@ -36,7 +36,7 @@
 }
 
  /* Buttons */
- button {
+ .form-container button {
     width: 250px;
     height: 35px;
     border-radius: 8px;
@@ -48,7 +48,7 @@
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
+.form-container button:hover {
     background-color: #0056b3;
     transform: scale(1.03);
 }

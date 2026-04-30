@@ -5,137 +5,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservation</title>
 
+    <link rel="stylesheet" href="/css/makeReservation.css">
+    <link href='https://fonts.googleapis.com/css?family=Playfair' rel='stylesheet'>
+
     <script src="script.js"></script>    
 
 
 </head>
 <body>
+    <%- include('../templates/navBar.ejs'); -%>
+
+    <div class="wrapper">
+
+        <h1>Reservation</h1>
+
+        <% if (locals.error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } else { %> 
 
 
-    <h1>Reservation</h1>
+        <h2>Maximum people in each table is 6. So make reservation wisely. Reservation cost for each table is Rs.1200.</h2>
 
-    <h2>Maximum people in each table is 6. So make reservation wisely. Reservation cost for each table is Rs.1200.</h2>
+        <div class="form-container">
 
-    <form action="/make-reservation" method="POST">
+            <form action="/make-reservation" method="POST">
 
-        <!-- <h2>Available Tables</h2>
- 
-    <label id="table" name="table">
-        <input id="table1" name="table1" type="checkbox">1
-        <input id="table2" name="table2" type="checkbox">2
-        <input id="table3" name="table3" type="checkbox">3
-        <input id="table4" name="table4" type="checkbox">4
-        <input id="table5" name="table5" type="checkbox">5
-    </label> -->
+                <!-- <h2>Available Tables</h2>
+        
+            <label id="table" name="table">
+                <input id="table1" name="table1" type="checkbox">1
+                <input id="table2" name="table2" type="checkbox">2
+                <input id="table3" name="table3" type="checkbox">3
+                <input id="table4" name="table4" type="checkbox">4
+                <input id="table5" name="table5" type="checkbox">5
+            </label> -->
 
-        <br>
-        <br>
+                <br>
+                <br>
 
-        <select name="time" id="time">
-            <option value="">Time</option>
+                <select name="time" id="time">
+                    <option value="">Time</option>
 
-            <option value="10:00 AM">10:00 AM</option>
-            <option value="10:15 AM">10:15 AM</option>
-            <option value="10:30 AM">10:30 AM</option>
-            <option value="10:45 AM">10:45 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="10:15 AM">10:15 AM</option>
+                    <option value="10:30 AM">10:30 AM</option>
+                    <option value="10:45 AM">10:45 AM</option>
 
-            <option value="11:00 AM">11:00 AM</option>
-            <option value="11:15 AM">11:15 AM</option>
-            <option value="11:30 AM">11:30 AM</option>
-            <option value="11:45 AM">11:45 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="11:15 AM">11:15 AM</option>
+                    <option value="11:30 AM">11:30 AM</option>
+                    <option value="11:45 AM">11:45 AM</option>
 
-            <!-- PM -->
-            <option value="12:00 PM">12:00 PM</option>
-            <option value="12:15 PM">12:15 PM</option>
-            <option value="12:30 PM">12:30 PM</option>
-            <option value="12:45 PM">12:45 PM</option>
+                    <!-- PM -->
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="12:15 PM">12:15 PM</option>
+                    <option value="12:30 PM">12:30 PM</option>
+                    <option value="12:45 PM">12:45 PM</option>
 
-            <option value="01:00 PM">01:00 PM</option>
-            <option value="01:15 PM">01:15 PM</option>
-            <option value="01:30 PM">01:30 PM</option>
-            <option value="01:45 PM">01:45 PM</option>
+                    <option value="01:00 PM">01:00 PM</option>
+                    <option value="01:15 PM">01:15 PM</option>
+                    <option value="01:30 PM">01:30 PM</option>
+                    <option value="01:45 PM">01:45 PM</option>
 
-            <option value="02:00 PM">02:00 PM</option>
-            <option value="02:15 PM">02:15 PM</option>
-            <option value="02:30 PM">02:30 PM</option>
-            <option value="02:45 PM">02:45 PM</option>
+                    <option value="02:00 PM">02:00 PM</option>
+                    <option value="02:15 PM">02:15 PM</option>
+                    <option value="02:30 PM">02:30 PM</option>
+                    <option value="02:45 PM">02:45 PM</option>
 
-            <option value="03:00 PM">03:00 PM</option>
-            <option value="03:15 PM">03:15 PM</option>
-            <option value="03:30 PM">03:30 PM</option>
-            <option value="03:45 PM">03:45 PM</option>
+                    <option value="03:00 PM">03:00 PM</option>
+                    <option value="03:15 PM">03:15 PM</option>
+                    <option value="03:30 PM">03:30 PM</option>
+                    <option value="03:45 PM">03:45 PM</option>
 
-            <option value="04:00 PM">04:00 PM</option>
-            <option value="04:15 PM">04:15 PM</option>
-            <option value="04:30 PM">04:30 PM</option>
-            <option value="04:45 PM">04:45 PM</option>
+                    <option value="04:00 PM">04:00 PM</option>
+                    <option value="04:15 PM">04:15 PM</option>
+                    <option value="04:30 PM">04:30 PM</option>
+                    <option value="04:45 PM">04:45 PM</option>
 
-            <option value="05:00 PM">05:00 PM</option>
-            <option value="05:15 PM">05:15 PM</option>
-            <option value="05:30 PM">05:30 PM</option>
-            <option value="05:45 PM">05:45 PM</option>
+                    <option value="05:00 PM">05:00 PM</option>
+                    <option value="05:15 PM">05:15 PM</option>
+                    <option value="05:30 PM">05:30 PM</option>
+                    <option value="05:45 PM">05:45 PM</option>
 
-            <option value="06:00 PM">06:00 PM</option>
-            <option value="06:15 PM">06:15 PM</option>
-            <option value="06:30 PM">06:30 PM</option>
-            <option value="06:45 PM">06:45 PM</option>
+                    <option value="06:00 PM">06:00 PM</option>
+                    <option value="06:15 PM">06:15 PM</option>
+                    <option value="06:30 PM">06:30 PM</option>
+                    <option value="06:45 PM">06:45 PM</option>
 
-            <option value="07:00 PM">07:00 PM</option>
-            <option value="07:15 PM">07:15 PM</option>
-            <option value="07:30 PM">07:30 PM</option>
-            <option value="07:45 PM">07:45 PM</option>
+                    <option value="07:00 PM">07:00 PM</option>
+                    <option value="07:15 PM">07:15 PM</option>
+                    <option value="07:30 PM">07:30 PM</option>
+                    <option value="07:45 PM">07:45 PM</option>
 
-            <option value="08:00 PM">08:00 PM</option>
-            <option value="08:15 PM">08:15 PM</option>
-            <option value="08:30 PM">08:30 PM</option>
-            <option value="08:45 PM">08:45 PM</option>
+                    <option value="08:00 PM">08:00 PM</option>
+                    <option value="08:15 PM">08:15 PM</option>
+                    <option value="08:30 PM">08:30 PM</option>
+                    <option value="08:45 PM">08:45 PM</option>
 
-            <option value="09:00 PM">09:00 PM</option>
-            <option value="09:15 PM">09:15 PM</option>
-            <option value="09:30 PM">09:30 PM</option>
-            <option value="09:45 PM">09:45 PM</option>
+                    <option value="09:00 PM">09:00 PM</option>
+                    <option value="09:15 PM">09:15 PM</option>
+                    <option value="09:30 PM">09:30 PM</option>
+                    <option value="09:45 PM">09:45 PM</option>
 
-            <option value="10:00 PM">10:00 PM</option>
-            <option value="10:15 PM">10:15 PM</option>
-            <option value="10:30 PM">10:30 PM</option>
-            <option value="10:45 PM">10:45 PM</option>
+                    <option value="10:00 PM">10:00 PM</option>
+                    <option value="10:15 PM">10:15 PM</option>
+                    <option value="10:30 PM">10:30 PM</option>
+                    <option value="10:45 PM">10:45 PM</option>
 
-        </select>
+                </select>
 
-        <label id="date" name="date" for="date">Date(A.D)</label>
-        <input id="date" name="date" type="date" required>
+                <label id="date" name="date" for="date">Date(A.D)</label>
+                <input id="date" name="date" type="date" required>
 
-        <!-- 
-        <label id="people" name="people" for="people">People</label>
-        <input id="people" name="people" type="number" placeholder="1" required> -->
+                <!-- 
+                <label id="people" name="people" for="people">People</label>
+                <input id="people" name="people" type="number" placeholder="1" required> -->
 
-        <select name="people" id="people">
-            <option value="">Total People</option>  
+                <select name="people" id="people">
+                    <option value="">Total People</option>  
 
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-        </select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
 
-        <!-- <input type="hidden" value="<%=  %>"> -->
+                <!-- <input type="hidden" value="<%=  %>"> -->
 
-        <button type="submit"> Make Reservation </button>
+                <button type="submit"> Make Reservation </button>
 
-    </form>
+            </form>
+        </div>
 
-
-    <% if (locals.error) { %>
-        <p style="color: red;"><%= error %></p>
-    <% } else { %> 
-  
-        <p style="color: green;"><%= date %></p>
-        <p style="color: green;"><%= time %></p>
-        <p style="color: green;"><%= people %></p>
-   
-    <% }%> 
       
+    
+        <div class="reservation-description"></div>
+            <p> Date: <%= date %></p>
+            <p> Time: <%= time %></p>
+            <p> People: <%= people %></p>
+        </div>
+    
+        <% }%> 
+
+    </div>
+
+    <%- include('../templates/footer.ejs'); -%>
+
 </body>
 </html>

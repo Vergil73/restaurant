@@ -156,6 +156,9 @@ async function confirmReservation(req, res){
         // Used reservation_id to delete the reservation from the reservation table
         const reservationId = req.body.reservation_id;
         await pool.query('UPDATE reservation SET confirmation=TRUE WHERE reservation_id=$1', [ reservationId ]);
+
+        req.flash('confirmReservation', 'Verified Reservation');
+
         res.redirect('/verified-reservation');
 
     } catch (error) {
@@ -169,6 +172,8 @@ async function cancelReservation(req, res){
         
         const reservationId = req.body.reservation_id;
         const { rows } = await pool.query('DELETE FROM reservation WHERE reservation_id=$1',[reservationId] );
+
+        req.flash('cancelReservation', 'Cancel Successful');
         res.redirect('/all-reservation');
 
     } catch (error) {
@@ -185,10 +190,12 @@ async function verifiedReservation(req, res) {
         if(rows.length === 0){
             return res.render('reservation/allReservation', { error: 'No reservation are Verified' });
         }
+
         res.render('reservation/verifiedReservation', { rows });
 
+
     } catch (error) {
-        console.log('Error in showing Verified Reservation');     
+        console.log('Error in showing Verified Reservation', error);     
     }    
 }
 

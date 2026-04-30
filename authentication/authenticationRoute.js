@@ -20,8 +20,5 @@ routes.post('/loginAccount', loginAccount);
 // Logout
 const { logout } = require('./authenticationController');
 routes.post('/logout', logout); 
-// routes.post('/logout', (req, res) => {
-//     console.log(req.sessionId);
-// }); 
 
 module.exports = routes

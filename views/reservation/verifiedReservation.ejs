@@ -8,6 +8,9 @@
 <body>
     <h1>Verified Reservation</h1>
 
+    <% if(confirmReservation){ %>
+           <p style="color: green;"><%= confirmReservation  %><p>         
+        <% } %>     
 
      <% if (locals.error) { %>
         <p style="color: red;"><%= error %></p>

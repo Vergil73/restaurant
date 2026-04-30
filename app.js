@@ -28,6 +28,8 @@ app.use((req, res, next) => {
     res.locals.role = req.session.role; // Checks for admin role
     res.locals.sucess_login = req.flash('sucess_login'); // Successfull login message
     res.locals.sucess_logout = req.flash('sucess_logout');
+    res.locals.confirmReservation = req.flash('confirmReservation');
+    res.locals.cancelReservation = req.flash('cancelReservation');
   next();
 });
 
@@ -46,15 +48,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
 // Authentication
-// Login
 const authentication = require('./authentication/authenticationRoute');
 app.use('/', authentication);
-
-// const logout = require('./authentication/authenticationRoute');
-// app.use('/', logout);
-
-// const createAccount = require('./authentication/authenticationRoute');
-// app.use('/', createAccount);
 
 // Homepage
 const homepage = require('./routes/homepage');

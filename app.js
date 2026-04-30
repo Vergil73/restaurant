@@ -14,7 +14,7 @@ app.use(session({
     saveUninitialized: false,
     cookie:{
         maxAge:  1000 * 60 * 60 * 24,
-        secure: true, //change this to true when using https
+        secure: false, //change this to true when using https
     }
 }));
 
@@ -47,11 +47,14 @@ app.use(bodyParser.urlencoded({ extended: true}));
 
 // Authentication
 // Login
-const login = require('./authentication/authenticationRoute');
-app.use('/', login);
+const authentication = require('./authentication/authenticationRoute');
+app.use('/', authentication);
 
-const createAccount = require('./authentication/authenticationRoute');
-app.use('/', createAccount);
+// const logout = require('./authentication/authenticationRoute');
+// app.use('/', logout);
+
+// const createAccount = require('./authentication/authenticationRoute');
+// app.use('/', createAccount);
 
 // Homepage
 const homepage = require('./routes/homepage');

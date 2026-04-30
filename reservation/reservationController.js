@@ -96,12 +96,14 @@ async function reservation(req, res){
 
         // Inserts data into the reservation database
         await pool.query('INSERT INTO reservation (time, date, people, user_Id) VALUES ($1, $2, $3, $4)', [ time, date, people, userId]);
+        
 
-        
-        
 
         const db = await pool.query('SELECT users.user_id AS user_id, username, reservation.user_id AS user_id FROM users INNER JOIN reservation ON users.user_id = reservation.user_id WHERE users.user_id=$1', [userId] );
+
         const resultUsername = db.rows[0].username;
+        
+        // console.log(resultUsername);
 
         // Sending a reservation message to the admin via gmail
         const info = await transporter.sendMail({
@@ -127,11 +129,13 @@ async function reservation(req, res){
 async function adminReservation(req, res) {
     try {
         // Uses Inner Join method for retrieving information from 2 different tables and it worked...lol
-        const { rows } = await pool.query('SELECT users.user_id AS user_id, username, reservation.user_id AS user_id, date, people, time FROM users INNER JOIN reservation ON users.user_id = reservation.user_id');
+        const { rows } = await pool.query('SELECT users.user_id AS user_id, username, reservation.user_id AS user_id, date, people, reservation_id, time FROM users INNER JOIN reservation ON users.user_id = reservation.user_id');
         
+         
 
         const result  = await pool.query('SELECT reservation_id FROM reservation');
-        console.log(result.rows.reservation_id);
+        // console.log(result.rows[0].reservation_id);
+        // console.log(rows);
 
         // When reservation database is empty
         if(rows.length === 0){
@@ -149,10 +153,10 @@ async function adminReservation(req, res) {
 async function confirmReservation(req, res){
     try {
         
-        // Use reservation_id to delete the reservation from the reservation table
-
-        
-
+        // Used reservation_id to delete the reservation from the reservation table
+        const reservationId = req.body.reservation_id;
+        await pool.query('UPDATE reservation SET confirmation=TRUE WHERE reservation_id=$1', [ reservationId ]);
+        res.redirect('/verified-reservation');
 
     } catch (error) {
         console.log('Error in Confirm Reservation ', error);
@@ -163,10 +167,8 @@ async function confirmReservation(req, res){
 async function cancelReservation(req, res){
     try {
         
-
-        const { rows } = await pool.query('SELECT reservation_id FROM reservation');
-        console.log(rows);
-
+        const reservationId = req.body.reservation_id;
+        const { rows } = await pool.query('DELETE FROM reservation WHERE reservation_id=$1',[reservationId] );
         res.redirect('/all-reservation');
 
     } catch (error) {
@@ -174,4 +176,20 @@ async function cancelReservation(req, res){
     }
 };
 
-module.exports = { reservation, reservationData, adminReservation, confirmReservation, cancelReservation };
+async function verifiedReservation(req, res) {
+    try {
+
+        const{rows} = await pool.query('SELECT * FROM reservation WHERE confirmation=TRUE');
+
+        // When reservation database is empty
+        if(rows.length === 0){
+            return res.render('reservation/allReservation', { error: 'No reservation are Verified' });
+        }
+        res.render('reservation/verifiedReservation', { rows });
+
+    } catch (error) {
+        console.log('Error in showing Verified Reservation');     
+    }    
+}
+
+module.exports = { reservation, reservationData, adminReservation, confirmReservation, cancelReservation, verifiedReservation };

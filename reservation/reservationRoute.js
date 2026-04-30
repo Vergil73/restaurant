@@ -25,5 +25,9 @@ routes.post('/confirm-reservation', confirmReservation);
 const { cancelReservation } = require('./reservationController');
 routes.post('/cancel-reservation', cancelReservation);
 
+// Verified Reservation page
+const { verifiedReservation } = require('./reservationController');
+routes.get('/verified-reservation', verifiedReservation);
+ 
 
 module.exports = routes;

@@ -1,4 +1,3 @@
-
 const { pool } = require('../data/dbConnection');
 const bcrypt = require('bcrypt');
 // const flash = require('connect-flash');
@@ -104,16 +103,20 @@ async function loginAccount(req, res) {
 }
 
 // Logout
-function logout(req, res){
-    
-
-    if(req.sesssion)
-        {req.session.destroy( () => {
-		    return res.clearCookie("sessionId");
-	    });
-    };
+function logout(req, res) {
+  if (req.session) {
     req.flash('sucess_logout', 'Logout Sucessfull');
-    res.redirect("/");
+    req.session.destroy(err => {
+      if (err) {
+        console.error('Logout error:', err);
+        return res.redirect('/');
+      }
+      res.clearCookie('connect.sid');
+      return res.redirect('/');
+    });
+  } else {
+    res.redirect('/');
+  }
     
 }
 

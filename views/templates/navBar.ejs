@@ -19,7 +19,7 @@
 
 
                 <% if(userId){ %>
-                    <form action="/logout" method="POST">
+                    <form action="/logout" method="POST"> 
                         <li><button>LOGOUT</button></li>
                     </form>
                 <% } else{ %> 
@@ -28,11 +28,14 @@
 
                 <% if(role){ %>
                     <li><a href="/all-reservation">ALL RESERVATION</a></li>
+                    <li><a href="/verified-reservation">VERIFIED RESERVATION</a></li>
+
+
                 <% } else if(userId){ %>
                     <li><a href="/reservation">RESERVATION</a></li>
                 <% } else{}%>
             
-          
+         
             <!-- <li><a href="/contact">CONTACT US</a></li> -->
         </ul>
     </div>

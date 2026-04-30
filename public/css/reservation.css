@@ -1,0 +1,54 @@
+ body{
+    font-family: playfair, 'Times New Roman', Times, serif;
+    color: #FEF3E2;
+    min-height: 100vh;
+    background: #000000;
+ }
+
+.wrapper{
+    text-align: center;
+    padding: 3rem 2rem;
+    margin: 9rem auto;
+    /* width: 1600px; */
+    background: #161616;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border: 5px solid rgba(255, 255, 255, 0.05);
+
+    
+}
+
+/* Reservation Description */
+.reservation-description{
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Form Container */
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 5px solid rgba(255, 255, 255, 0.05);
+}
+
+ /* Buttons */
+ button {
+    width: 250px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.03);
+}

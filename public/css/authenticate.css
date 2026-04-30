@@ -1,0 +1,81 @@
+ body{
+    font-family: playfair, 'Times New Roman', Times, serif;
+    color: #FEF3E2;
+    min-height: 100vh;
+    background: #000000;
+ }
+
+.login-container {
+    text-align: center;
+    padding: 3rem 2rem;
+    margin: 9rem auto;
+    width: 320px;
+
+    /* background: #161616; */
+    border-radius: 12px;
+
+    /* this is what you’re missing */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.subtext{
+    font-size: 1.3rem;
+}
+
+.subtext a{
+    text-decoration: underline;
+    color: #FEF3E2;
+}
+
+ .form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 2.5rem;
+    gap: 15px;
+ }
+
+.form-container input {
+    background-color: #0F0F0F;
+    color: #FEF3E2;
+    width: 250px;
+    height: 35px;
+    padding: 0 10px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    outline: none;
+
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-container input:focus {
+    border: 1px solid #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+}
+
+.form-container button {
+    width: 250px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+    transform: scale(1.03);
+}
+
+
+ .error{
+    color: red;
+ }

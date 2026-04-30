@@ -30,7 +30,7 @@ body{
     justify-content: space-between;
     width: 100%;
     padding: 0 2rem;
-    max-width: 1600px;
+    /* max-width: 1600px; */
 }
 
 
@@ -49,7 +49,7 @@ body{
     list-style: none ;
 }
 
-.navbar-container .navbar-menu li a{
+/* .navbar-container .navbar-menu li a{
     text-decoration: none;
     color:#CFEEEE;
     font-size: 1.3rem;
@@ -66,6 +66,50 @@ body{
     color: #000000;
     background-color: #CFEEEE;
     border: 2px solid #000000;
+} */
+
+/* Target both the <a> links and the Logout button */
+.navbar-container .navbar-menu li a,
+.nav-link-btn {
+    text-decoration: none;
+    color: #CFEEEE;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 3px 20px;
+    border-radius: 20px;
+    border: 2px solid transparent; /* Keeps layout stable on hover */
+    transition: all 0.7s ease;
+    white-space: nowrap;
+    
+    /* Button specific resets */
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit; /* Inherits the site font */
+    display: inline-block;
+    line-height: normal;
+    outline: none;
+}
+
+/* Hover and Active states for both */
+.navbar-container .navbar-menu li a:hover,
+.navbar-container .navbar-menu li a.active,
+.nav-link-btn:hover {
+    color: #000000;
+    background-color: #CFEEEE;
+    border: 2px solid #000000;
+}
+
+/* Ensure the form doesn't add extra vertical spacing */
+.logout-form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure the list item aligns correctly */
+.nav-item-form {
+    display: flex;
+    align-items: center;
 }
 
 .navbar-toggle{
@@ -84,6 +128,8 @@ body{
     background: #CFEEEE;
     transition: all 0.3s ease-in-out;
 }
+
+
 
 @media (max-width: 880px){
     .navbar{
@@ -147,6 +193,6 @@ body{
     }
     
     .navbar-container .navbar-menu.active{
-        width: 150px;
+        width: 250px;
     }
 }

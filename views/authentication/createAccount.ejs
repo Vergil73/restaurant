@@ -3,35 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/authenticate.css">
+    <link href='https://fonts.googleapis.com/css?family=Playfair' rel='stylesheet'>
+
     <title>SignIn</title>
 </head>
 <body>
 
-    <h1>CREATE ACCOOUNT</h1>
+    <%- include('../templates/navBar.ejs'); -%>
 
-    <div class="create-account">
-        <form action="/newAccount" method="post">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="Klein" required>
+    <div class="login-container">
+        <h1>CREATE ACCOOUNT</h1>
+
+        <form action="/newAccount" method="post" class="form-container">
+            <label for="username"></label>
+            <input type="text" name="username" id="username" placeholder="username" required>
             <!-- <label for="email">Email</label>
             <input type="email" name="email" id="email" placeholder="klein@gmail.com" autocomplete="off" required> -->
-            <label for="password">Password</label>
+            <label for="password"></label>
             <input 
                 type="password" 
                 name="password" 
                 id="password" 
+                placeholder="password"
                
             >
             <button type="submit"> Create account</button>
         </form>
+
+        <% if (locals.error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %> 
+
     </div>
 
-    <% if (locals.error) { %>
-        <p style="color: red;"><%= error %></p>
-    <% } %> 
+
+
+ 
       
+
+    <%- include('../templates/footer.ejs'); -%>
 
  
 </body>
 </html>
+
+  

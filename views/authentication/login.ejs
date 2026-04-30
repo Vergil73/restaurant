@@ -4,37 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- <link rel="stylesheet" href="/css/home.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <link href='https://fonts.googleapis.com/css?family=Playfair' rel='stylesheet'> -->
+    <link rel="stylesheet" href="/css/authenticate.css">
+    <link href='https://fonts.googleapis.com/css?family=Playfair' rel='stylesheet'>
 
     <title>Login</title>
 </head>
 <body>
 
-    <!-- <%- include('../templates/navBar.ejs'); -%> -->
+<!DOCTYPE html>
 
-    
-    <h1>Login</h1>
-    <div class="signin">
-        <form action="/loginAccount" method="post">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="username" autocomplete="on" required>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="password" autocomplete="off" required>
-            <button type="submit"> Sign in</button>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/authenticate.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair" rel="stylesheet">
+    <title>Login</title>
+</head>
+<body>
+
+
+<%- include('../templates/navBar.ejs'); -%>
+
+<div class="login-container">
+        <h1>Welcome Back</h1>
+
+        <p class="subtext">
+            Don't have an account?
+            <a href="/create-account">Create one</a>
+        </p>
+
+        <form action="/loginAccount" method="post" class="form-container">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+
+            <button type="submit">Sign In</button>
         </form>
-    </div>    
 
-    <% if (locals.error) { %>
-        <p style="color: red;"><%= error %></p>
-    <% } %> 
-      
-    
-    <a href="/create-account">Create an account</a>
+        <% if (locals.error) { %>
+            <p class="error"><%= error %></p>
+        <% } %>
+</div>
 
-    <!-- <%- include('../templates/footer.ejs'); -%> -->
+<%- include('../templates/footer.ejs'); -%>
 
-    
+
 </body>
 </html>

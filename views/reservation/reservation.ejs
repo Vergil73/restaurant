@@ -140,12 +140,15 @@
         </div>
 
       
-    
-        <div class="reservation-description"></div>
-            <p> Date: <%= date %></p>
-            <p> Time: <%= time %></p>
-            <p> People: <%= people %></p>
-        </div>
+        <h1>Your Reservations</h1>
+        <% rows.forEach(row => { %>
+            <div class="reservation-description">
+                <p> Date: <%= row.date %></p>
+                <p> Time: <%= row.time %></p>
+                <p> People: <%= row.people %></p>
+            </div>
+        <% }); %>
+      
     
         <% }%> 
 

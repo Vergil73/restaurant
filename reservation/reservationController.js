@@ -63,10 +63,11 @@ async function reservationData(req, res) {
         else{
             const user_Id = req.session.userId;
             const { rows } = await pool.query('SELECT date, people, time FROM reservation WHERE user_id  = $1', [user_Id]);
-            const date = rows[0].date;
-            const people = rows[0].people;
-            const time = rows[0].time;
-            res.render('reservation/reservation', { date, people, time,  user_Id}); 
+            // const date = rows[0].date;
+            // const people = rows[0].people;
+            // const time = rows[0].time;
+            // res.render('reservation/reservation', { date, people, time,  user_Id}); 
+            res.render('reservation/reservation', { rows });
         }
   
     } catch (error) {

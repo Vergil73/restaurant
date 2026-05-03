@@ -55,9 +55,9 @@ async function reservationData(req, res) {
         } 
 
         // Checks if user exists in the reservation database or not
-        else if(!userExist){
-            return res.render('reservation/reservation', { error:'No reservation made yet..'});
-        }
+        // else if(!userExist){
+        //     return res.render('reservation/reservation', { error:'No reservation made yet..'});
+        // }
 
         // If user exist in reservation database get the reservation data 
         else{

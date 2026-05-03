@@ -1,6 +1,6 @@
 # Restaurant Reservation Web App
 
-A simple restaurant mockup website built with Node.js, Express, EJS templates, and CSS.
+A full-stack restaurant web application built with Node.js, Express, and EJS, featuring user authentication and a reservation management system.
 
 ## Overview
 
